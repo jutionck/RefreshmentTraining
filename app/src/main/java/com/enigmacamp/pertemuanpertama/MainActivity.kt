@@ -1,7 +1,9 @@
 package com.enigmacamp.pertemuanpertama
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
@@ -9,78 +11,53 @@ import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var inputPanjang: TextInputEditText
-    private lateinit var inputLebar: TextInputEditText
-    private lateinit var inputTinggi: TextInputEditText
-    private lateinit var buttonHitung: MaterialButton
-    private lateinit var txtResult: TextView
+    private lateinit var userNameText: TextInputEditText
+    private val activityName = "MAIN ACTIVITY"
+
+    companion object {
+        const val USER_NAME = "USER_NAME"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        inputPanjang = findViewById(R.id.input_panjang)
-        inputLebar = findViewById(R.id.input_lebar)
-        inputTinggi = findViewById(R.id.input_tinggi)
-        buttonHitung = findViewById(R.id.btn_hitung)
-        txtResult = findViewById(R.id.txt_hasil)
-
-        buttonHitung.setOnClickListener {
-            if(it?.id == R.id.btn_hitung) {
-                val panjang = inputPanjang.text.toString().trim()
-                val lebar = inputLebar.text.toString().trim()
-                val tinggi = inputTinggi.text.toString().trim()
-
-                var isEmptyFields = false
-
-                when {
-                    panjang.isEmpty() -> {
-                        isEmptyFields = true
-                        inputPanjang.error = "Field ini tidak boleh kosong"
-                    }
-                    lebar.isEmpty() -> {
-                        isEmptyFields = true
-                        inputLebar.error =  "Field ini tidak boleh kosong"
-                    }
-                    tinggi.isEmpty() -> {
-                        isEmptyFields = true
-                        inputTinggi.error = "Field ini tidak boleh kosong"
-                    }
-                }
-
-                if (!isEmptyFields) {
-                    val volume = panjang.toDouble() * lebar.toDouble() * tinggi.toDouble()
-                    txtResult.text = volume.toString()
-                }
-            }
-        }
+        userNameText = findViewById(R.id.username_text_input)
     }
 
-    fun penjumlahan(view: View) {
-        val panjang = inputPanjang.text.toString().trim()
-        val lebar = inputLebar.text.toString().trim()
-        val tinggi = inputTinggi.text.toString().trim()
+    fun moveToSecondActivity(view: View) {
+        val intent = Intent(this, BoardActivity::class.java)
+        intent.putExtra(USER_NAME, userNameText.text.toString())
+        startActivity(intent)
+    }
 
-        var isEmptyFields = false
+    override fun onStart() {
+        super.onStart()
+        Log.i(activityName, "OnStart() CALLED")
+    }
 
-        when {
-            panjang.isEmpty() -> {
-                isEmptyFields = true
-                inputPanjang.error = "Field ini tidak boleh kosong"
-            }
-            lebar.isEmpty() -> {
-                isEmptyFields = true
-                inputLebar.error =  "Field ini tidak boleh kosong"
-            }
-            tinggi.isEmpty() -> {
-                isEmptyFields = true
-                inputTinggi.error = "Field ini tidak boleh kosong"
-            }
-        }
+    override fun onResume() {
+        super.onResume()
+        Log.i(activityName, "OnResume() CALLED")
+    }
 
-        if (!isEmptyFields) {
-            val volume = panjang.toDouble() + lebar.toDouble() + tinggi.toDouble()
-            txtResult.text = volume.toString()
-        }
+    override fun onPause() {
+        super.onPause()
+        Log.i(activityName, "OnPause() CALLED")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(activityName, "OnStop() CALLED")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(activityName, "OnDestroy() CALLED")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(activityName, "OnRestart() CALLED")
     }
 }
