@@ -2,28 +2,21 @@ package com.enigmacamp.pertemuanpertama
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import com.google.android.material.textview.MaterialTextView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var tvCounter: MaterialTextView
-    private var startCounter = 0
+    //Inisialisasi
+    private lateinit var counterFragment: FragmentOne
+    private lateinit var counterShowFragment: FragmentTwo
+    private var counter = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        tvCounter = findViewById(R.id.tv_counter)
+        counterFragment =  FragmentOne()
+        counterShowFragment = FragmentTwo()
     }
 
-    fun notifyIncrease(view: View) {
-        startCounter+=1
-        tvCounter.text = startCounter.toString()
-    }
-    fun notifyDecrease(view: View) {
-        startCounter-=1
-        tvCounter.text = startCounter.toString()
-    }
+
 
 }
