@@ -3,55 +3,33 @@ package com.enigmacamp.pertemuanpertama
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.TextView
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
+import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var userTextInput: TextInputEditText
-    private val activityName = "MAIN ACTIVITY"
+class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
-        const val USER_NAME = "USER_NAME"
+        const val FIRST_NAME = "FIRST_NAME"
+        const val LAST_NAME = "LAST_NAME"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        userTextInput = findViewById(R.id.username_text_input)
+        button_tekan.setOnClickListener(this)
     }
 
-    fun moveToSecondActivity(view: View) {
+    override fun onClick(v: View?) {
+        when(v) {
+            button_tekan -> toBoardActivity()
+        }
+    }
+
+    private fun toBoardActivity() {
         val intent = Intent(this, BoardActivity::class.java)
-        intent.putExtra(USER_NAME, userTextInput.text.toString())
+        intent.putExtra(FIRST_NAME, input_name.text.toString())
+        intent.putExtra(LAST_NAME, input_name2.text.toString())
         startActivity(intent)
     }
-    // Siklus activity
-    override fun onStart() {
-        super.onStart()
-        Log.i(activityName, "OnStart() CALLED")
-    }
-    override fun onResume() {
-        super.onResume()
-        Log.i(activityName, "OnResume() CALLED")
-    }
-    override fun onPause() {
-        super.onPause()
-        Log.i(activityName, "OnPause() CALLED")
-    }
-    override fun onStop() {
-        super.onStop()
-        Log.i(activityName, "OnStop() CALLED")
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.i(activityName, "OnDestroy() CALLED")
-    }
-    override fun onRestart() {
-        super.onRestart()
-        Log.i(activityName, "OnRestart() CALLED")
-    }
+
 }
