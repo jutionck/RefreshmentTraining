@@ -2,21 +2,18 @@ package com.enigmacamp.pertemuanpertama
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.fragment_two.*
 
 class MainActivity : AppCompatActivity() {
-
-    //Inisialisasi
-    private lateinit var counterFragment: FragmentOne
-    private lateinit var counterShowFragment: FragmentTwo
-    private var counter = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        counterFragment =  FragmentOne()
-        counterShowFragment = FragmentTwo()
     }
 
+    fun controllerData(value: Int) {
+        counterValue.text = value.toString()
+    }
 
 
 }

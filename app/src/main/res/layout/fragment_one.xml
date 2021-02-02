@@ -5,35 +5,35 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentOne">
+    tools:context=".CounterFragment"
+    android:background="@android:color/holo_orange_light">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/increaseButton"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:backgroundTint="@color/primaryColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="-"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/decreaseButton"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
-            android:backgroundTint="@color/secondaryColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="+"/>
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:text="-"
+            android:textSize="24sp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/increaseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:text="+"
+            android:textSize="24sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
