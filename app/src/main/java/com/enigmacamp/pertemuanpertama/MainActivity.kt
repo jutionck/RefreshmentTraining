@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
                 var isEmptyFields = false
 
+
                 when {
                     panjang.isEmpty() -> {
                         isEmptyFields = true
@@ -53,34 +57,6 @@ class MainActivity : AppCompatActivity() {
                     txtResult.text = volume.toString()
                 }
             }
-        }
-    }
-
-    fun penjumlahan(view: View) {
-        val panjang = inputPanjang.text.toString().trim()
-        val lebar = inputLebar.text.toString().trim()
-        val tinggi = inputTinggi.text.toString().trim()
-
-        var isEmptyFields = false
-
-        when {
-            panjang.isEmpty() -> {
-                isEmptyFields = true
-                inputPanjang.error = "Field ini tidak boleh kosong"
-            }
-            lebar.isEmpty() -> {
-                isEmptyFields = true
-                inputLebar.error =  "Field ini tidak boleh kosong"
-            }
-            tinggi.isEmpty() -> {
-                isEmptyFields = true
-                inputTinggi.error = "Field ini tidak boleh kosong"
-            }
-        }
-
-        if (!isEmptyFields) {
-            val volume = panjang.toDouble() + lebar.toDouble() + tinggi.toDouble()
-            txtResult.text = volume.toString()
         }
     }
 }

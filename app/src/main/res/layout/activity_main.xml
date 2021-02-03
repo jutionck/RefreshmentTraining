@@ -14,6 +14,7 @@
             android:id="@+id/input_panjang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Panjang" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -26,6 +27,7 @@
             android:id="@+id/input_lebar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Lebar" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -37,6 +39,7 @@
             android:id="@+id/input_tinggi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Tinggi" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,12 +51,6 @@
         android:backgroundTint="@color/primaryColor"
         android:text="HITUNG" />
 
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="penjumlahan"
-        android:text="PENJUMALAHN"/>
 
     <TextView
         android:id="@+id/txt_hasil"
