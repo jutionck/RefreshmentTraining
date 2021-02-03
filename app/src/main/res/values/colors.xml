@@ -17,4 +17,23 @@
     <color name="secondaryDarkColor">#c6a700</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#000000</color>
+
+    <color name="customBlack">#000000</color>
+    <color name="customWhite">#FFFFFF</color>
+    <color name="customFacebook">#3B5998</color>
+    <color name="customGoogle">#D44638</color>
+    <color name="customText">#808080</color>
+    <color name="custom1">#F9E07E</color>
+    <color name="customWin">#00BCD4</color>
+    <color name="customLose">#DA2B00</color>
+    <color name="custom2">#17A398</color>
+    <color name="customChat">#323739</color>
+    <color name="customChatSecond">#1b9a59</color>
+    <color name="customLinkText">#0AC1A5</color>
+    <color name="custom4">#030303</color>
+    <color name="customBackground">#F5F5F5</color>
+    <color name="custom5">#575A89</color>
+    <color name="customButton">#2C3C5B</color>
+    <color name="customBlue">#0000FF</color>
+    <color name="customRed">#FF0000</color>
 </resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigarion"
+    app:startDestination="@id/firstWelcomeFragment2">
+    <fragment
+        android:id="@+id/firstWelcomeFragment2"
+        android:name="com.enigmacamp.pertemuanpertama.welcome.FirstWelcomeFragment"
+        android:label="fragment_first_welcome"
+        tools:layout="@layout/fragment_first_welcome" >
+        <action
+            android:id="@+id/action_firstWelcomeFragment_to_secondWelcomeFragment"
+            app:destination="@id/secondWelcomeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondWelcomeFragment2"
+        android:name="com.enigmacamp.pertemuanpertama.welcome.SecondWelcomeFragment"
+        android:label="fragment_second_welcome"
+        tools:layout="@layout/fragment_second_welcome" >
+        <action
+            android:id="@+id/action_secondWelcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.enigmacamp.pertemuanpertama.welcome.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+</navigation>
