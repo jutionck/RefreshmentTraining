@@ -14,6 +14,7 @@ class FragmentOne : Fragment() {
 
     private val counterViewModel: CounterViewModel by activityViewModels()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -29,10 +30,11 @@ class FragmentOne : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         increaseButton.setOnClickListener {
           counterViewModel.increase()
-            Log.d("FRAGMENT_ONE", "Increment")
         }
         decreaseButton.setOnClickListener {
            counterViewModel.decrease()
         }
     }
+
+
 }
