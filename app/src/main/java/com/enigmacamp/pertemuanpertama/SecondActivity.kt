@@ -3,14 +3,18 @@ package com.enigmacamp.pertemuanpertama
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.observe
 import kotlinx.android.synthetic.main.activity_second.*
+import kotlinx.android.synthetic.main.fragment_counter_show.*
 
-class SecondActivity : AppCompatActivity(),  View.OnClickListener, CounterInterface {
+class SecondActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var counterFragment: CounterFragment
     private lateinit var counterShowFragment: CounterShowFragment
-    private var counter = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,31 +23,23 @@ class SecondActivity : AppCompatActivity(),  View.OnClickListener, CounterInterf
         counterShowFragmentButton.setOnClickListener(this)
         counterFragment = CounterFragment()
         counterShowFragment = CounterShowFragment()
-        //Penempelan fragment secara dinamis, bisa menggunakan FrameLayout dengan id fragmentCointainer
-        supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, counterFragment).commit()
+
+        supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, counterFragment)
+            .commit()
     }
 
     override fun onClick(v: View?) {
-        when(v) {
+        when (v) {
             counterFragmentButton -> {
                 switchFragment(counterFragment)
             }
             counterShowFragmentButton -> {
-                counterShowFragment.counter = counter
                 switchFragment(counterShowFragment)
             }
         }
     }
 
-    override fun notifyIncrease() {
-        counter+=1
-    }
-
-    override fun notifyDecrease() {
-        counter-=1
-    }
-
-    private fun switchFragment(fragment: Fragment){
+    private fun switchFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
     }
 }

@@ -5,19 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import kotlinx.android.synthetic.main.fragment_counter.*
 
 class CounterFragment : Fragment(), View.OnClickListener {
-    private lateinit var counterHandler: CounterInterface
+
+    private val counterViewModel: CounterViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        counterHandler = activity as CounterInterface
-
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_counter, container, false)
     }
@@ -27,16 +29,11 @@ class CounterFragment : Fragment(), View.OnClickListener {
         increaseButton.setOnClickListener(this)
         decreaseButton.setOnClickListener(this)
     }
+
     override fun onClick(v: View?) {
-        when(v) {
-            increaseButton -> {
-                println("INCREASE BUTTON DIPANGGIL")
-                counterHandler.notifyIncrease()
-            }
-            decreaseButton -> {
-                println("DECREASE BUTTON DIPANGGIL")
-                counterHandler.notifyDecrease()
-            }
+        when (v) {
+            increaseButton -> counterViewModel.increase()
+            decreaseButton -> counterViewModel.decrease()
         }
     }
 }
