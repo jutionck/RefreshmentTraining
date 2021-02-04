@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         languageViewModel.languageLiveData.observe(this, Observer {
             languageRecyclerAdapter.notifyDataSetChanged()
         })
-
     }
 
     fun addLanguage(view: View) {
