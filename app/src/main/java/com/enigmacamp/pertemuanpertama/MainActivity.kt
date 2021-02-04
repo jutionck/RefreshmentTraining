@@ -18,16 +18,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         language_recycle_view.layoutManager = LinearLayoutManager(this)
-        languageRecyclerAdapter = LanguageRecyclerAdapter(languageViewModel.languageLiveData.value!!)
+        languageRecyclerAdapter = LanguageRecyclerAdapter()
         language_recycle_view.adapter = languageRecyclerAdapter
-        languageViewModel.languageLiveData.observe(this, Observer {
-            languageRecyclerAdapter.notifyDataSetChanged()
-        })
+        refreshData()
     }
 
     fun addLanguage(view: View) {
         val languageName = language_name_input.text.toString()
         languageViewModel.addLanguage(languageName)
+        refreshData()
+    }
 
+    private fun refreshData() {
+        languageRecyclerAdapter.setData(languageViewModel.languageLiveData)
     }
 }

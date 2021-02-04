@@ -18,8 +18,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/language_name_input"
             android:layout_width="0dp"
+            android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
-            android:hint="Language name"
             android:layout_weight="1"/>
 
         <com.google.android.material.button.MaterialButton
@@ -40,7 +40,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearlayout"
         tools:ignore="MissingConstraints" />
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
