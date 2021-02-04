@@ -25,14 +25,14 @@ class MainActivity : AppCompatActivity(), CounterInterface {
     }
 
     override fun notifyIncrease() {
-        counter+=1
+        counter++
         println("Counter $counter")
         counterShowFragment.notifyShowCounter(counter)
     }
 
 
     override fun notifyDecrease() {
-        counter-=1
+        counter--
         println("Counter $counter")
         counterShowFragment.notifyShowCounter(counter)
     }
