@@ -26,7 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"/>
 
         <TextView
@@ -34,8 +33,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bahasa"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/delete_button"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:padding="8dp"
+            android:layout_marginLeft="210dp"
+            android:backgroundTint="@color/primaryColor"
+            android:text="X"/>
 
     </LinearLayout>
 

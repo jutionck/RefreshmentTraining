@@ -3,11 +3,9 @@ package com.enigmacamp.pertemuanpertama
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import java.util.ArrayList
+import kotlinx.android.synthetic.main.language_item_layout.view.*
 
-class LanguageRecyclerAdapter :  RecyclerView.Adapter<LanguageViewHolder>() {
-
-    private var dataList =  ArrayList<String>()
+class LanguageRecyclerAdapter(private val listLanguage: MutableList<String>) :  RecyclerView.Adapter<LanguageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -15,18 +13,15 @@ class LanguageRecyclerAdapter :  RecyclerView.Adapter<LanguageViewHolder>() {
         return LanguageViewHolder(view)
     }
 
-    override fun getItemCount() = dataList.size
+    override fun getItemCount() = listLanguage.size
 
     override fun onBindViewHolder(holder: LanguageViewHolder, position: Int) {
         holder.orderNumber.text = position.toString()
-        holder.languageName.text = dataList[position]
+        holder.languageName.text = listLanguage[position]
         holder.itemView.setOnClickListener{ holder }
-    }
-
-    fun setData(languageList: MutableList<String>) {
-        dataList.clear()
-        dataList.addAll(languageList)
-        notifyDataSetChanged()
+        holder.itemView.delete_button.setOnClickListener {
+            notifyItemRemoved(position)
+        }
     }
 }
 
